@@ -27,6 +27,7 @@ class Semafaro{
 };
 
 
+//cria memoria compartilhda armaxenando em vetor
 void create_shared_memory() {
      shm_id = shmget(key, 10*sizeof(int), 0666 | IPC_CREAT);
      qtdCliente = (int*)shmat(shm_id, NULL, 0);
@@ -63,6 +64,7 @@ void criarCliente(string nome){
 }
 
 int main(){
+    //inicialiaza a memoria compartilhada
     create_shared_memory();
     Semafaro::criar(countSemafaro,objSemafaro);
     int pid = fork(); 
@@ -83,6 +85,5 @@ int main(){
             }
         }
     }
-    
     return 0; 
 }
