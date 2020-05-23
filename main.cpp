@@ -68,6 +68,7 @@ int main(){
                 criarCliente(cliente);
                 break;
             }
+            qtdCliente++;
 
         }
     }
